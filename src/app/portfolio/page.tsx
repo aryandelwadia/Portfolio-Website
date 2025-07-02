@@ -9,17 +9,17 @@ const items = [
         id: 1,
         color: "from-red-300 to-blue-300",
         title: "Fresh Eats",
-        desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro optio sed, labore fuga quam doloribus qui unde iusto! Praesentium aliquam ratione vitae saepe consectetur. Laudantium qui velit necessitatibus fuga id.",
-        img: "public\next.svg",
-        link: "",
+        desc: "The FreshEats e-commerce project aims to create a user-friendly online platform for purchasing everyday grocery items. This system allows customers to browse a wide range of products, add items to a virtual cart, and securely place orders for home delivery or pickup. Key features include real-time inventory management, personalized recommendations, secure payment integration, and responsive design for both web and mobile devices.",
+        img: "/FreshEats.png",
+        link: "https://github.com/aryandelwadia/FreshEats",
     },
     {
         id: 2,
         color: "from-blue-300 to-violet-300",
-        title: "Fresh Eats",
-        desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro optio sed, labore fuga quam doloribus qui unde iusto! Praesentium aliquam ratione vitae saepe consectetur. Laudantium qui velit necessitatibus fuga id.",
-        img: "public\next.svg",
-        link: "",
+        title: "MediSync",
+        desc: "MediSync is a comprehensive hospital management system designed to streamline and digitize medical operations. It integrates patient records, appointments, billing, inventory, and staff management into a single, efficient platform. MediSync enhances workflow efficiency, improves patient care, and ensures secure, centralized data access for healthcare providers.",
+        img: "/MediSync.png",
+        link: "https://github.com/aryandelwadia/MediSync",
     },
 ];
 
@@ -43,7 +43,7 @@ export default function PortfolioPage(){
                             <div className={`h-screen w-screen flex items-center justify-center bg-gradient-to-r ${item.color}`} key={item.id} >
                                 <div className=" flex flex-col gap-8 text-white">
                                     <h1 className="text-xl font-bold md:text-4xl lg:text-6xl xl:text-8xl">{item.title}</h1>
-                                    <div className="relative w-80 h-56 md:w-96 md:h-64 lg:w-[500px] lg:h-[350px] xl:w-[600px] xl:h-[420px]">
+                                    <div className="relative w-100 h-56 md:w-110 md:h-64 lg:w-[600px] lg:h-[350px] xl:w-[700px] xl:h-[420px]">
                                         <Image src={item.img} alt="" fill />
                                     </div>
                                     <p className="w-80 md:w-96 lg:w-[500px] xl:w-[600px] lg:text-xl">{item.desc}</p>

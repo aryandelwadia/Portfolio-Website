@@ -73,8 +73,6 @@ export default function Navbar(){
                         <NavLink link={link} key={link.url}></NavLink>
                 ))}
             </div>
-        
-            <div className="w-1/3 flex justify-center">LOGO</div>
 
             <div className="md:hidden">
                 <button className="w-10 h-8 flex flex-col justify-between z-50 relative" onClick={(()=>setOpen(!open))}>

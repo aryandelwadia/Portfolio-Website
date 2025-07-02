@@ -57,13 +57,13 @@ export default function AboutPage(){
                                         Intern
                                     </div>
                                     <div className="p-3 text-sm italic">
-                                        Desc
+                                        As MERN Stack Developer
                                     </div>
                                     <div className="p-3 text-red-400 text-sm font-semibold">
                                         May - June 2025
                                     </div>
                                     <div className="p-1 rounded bg-white text-sm font-semibold w-fit">
-                                        Company
+                                        CodeVale Technologies
                                     </div>
                                 </div>
                                 <div className ="w-1/6">
