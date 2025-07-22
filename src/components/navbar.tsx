@@ -91,11 +91,20 @@ export default function Navbar(){
             </div>
 
             <div className="hidden md:flex gap-4 w-1/3 items-center justify-center">
-                <Link href={""}>
+                <Link href={"https://github.com/aryandelwadia"}>
                     <Image src="/github.png" alt="" width={24} height={24}></Image>
                 </Link>
-                <Link href={""}>
+                <Link href={"https://www.linkedin.com/in/aryandelwadia/"}>
                     <Image src="/linkedin.png" alt="" width={24} height={24}></Image>
+                </Link>
+                <Link href={"https://leetcode.com/u/aryandelwadia/"}>
+                    <Image src="/leetcode.png" alt="" width={24} height={24}></Image>
+                </Link>
+                <Link href={"https://www.geeksforgeeks.org/user/aryan18923/"}>
+                    <Image src="/gfg.png" alt="" width={24} height={24}></Image>
+                </Link>
+                <Link href={"https://www.naukri.com/code360/profile/aryandelwadia"}>
+                    <Image src="/cn.jpeg" alt="" width={24} height={24}></Image>
                 </Link>
             </div>
         </div>
