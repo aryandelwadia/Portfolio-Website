@@ -13,8 +13,18 @@ type NavLinkProps = {
 
 export default function NavLink({ link } : NavLinkProps){
     const pathName = usePathname();
+    const active = pathName === link.url;
     
     return (
-        <Link className={`rounded p-1 ${pathName === link.url && "bg-black text-white"}`} href={link.url}>{link.title}</Link>
+        <Link
+          className={`rounded-full px-4 py-2 text-sm font-semibold uppercase tracking-[0.14em] transition ${
+            active
+              ? "bg-red-500 text-white shadow-[0_0_24px_rgba(240,61,61,0.35)]"
+              : "text-white/68 hover:bg-white/10 hover:text-white"
+          }`}
+          href={link.url}
+        >
+          {link.title}
+        </Link>
     );
 }

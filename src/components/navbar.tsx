@@ -4,6 +4,8 @@ import { useState } from "react";
 import Image from "next/image";
 import NavLink from "./navLink";
 import { motion } from "motion/react";
+import { Code2, Menu, X } from "lucide-react";
+import { socials } from "@/data/portfolio";
 
 const links = [
     {url: "/", title: "Home"},
@@ -16,39 +18,14 @@ export default function Navbar(){
     
     const [open, setOpen] = useState(false);
 
-    const topVariants = {
-        closed:{
-            rotate: 0,
-        },
-        opened:{
-            rotate: 45,
-            backgroundColor: "rgb(255,255,255)",
-        }
-    }
-    const centerVariants = {
-        closed:{
-            opacity: 1,
-        },
-        opened:{
-            opacity: 0,
-        }
-    }
-    const bottomVariants = {
-        closed:{
-            rotate: 0,
-        },
-        opened:{
-            rotate: -45,
-            backgroundColor: "rgb(255,255,255)",
-        }
-    }
-
     const listVariants = {
         closed:{
-            x: "100vw"
+            x: "100vw",
+            opacity: 0,
         },
         opened:{
             x: 0,
+            opacity: 1,
             transition: {
                 when: "beforeChildren",
                 staggerChildren: 0.1,
@@ -67,46 +44,53 @@ export default function Navbar(){
     }
     
     return (
-        <div className="h-full flex items-center justify-between px-4 sm:px-8 md:px-12 lg:px-20 xl:px-48 text-xl">
-            <div className="hidden md:flex gap-4 w-1/3">
+        <nav className="mx-auto flex h-full max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+            <Link href="/" className="group flex items-center gap-3">
+                <span className="grid size-10 place-items-center rounded-full border border-red-400/50 bg-red-500/10 text-red-200 shadow-[0_0_30px_rgba(240,61,61,0.18)]">
+                    <Code2 size={20} />
+                </span>
+                <span className="leading-none">
+                    <span className="block text-sm font-black uppercase tracking-[0.22em] text-white">Aryan</span>
+                    <span className="block text-[10px] font-semibold uppercase tracking-[0.32em] text-cyan-100/60">F1 Dev Grid</span>
+                </span>
+            </Link>
+
+            <div className="hidden items-center gap-2 md:flex">
                 {links.map(link => (
                         <NavLink link={link} key={link.url}></NavLink>
                 ))}
             </div>
 
             <div className="md:hidden">
-                <button className="w-10 h-8 flex flex-col justify-between z-50 relative" onClick={(()=>setOpen(!open))}>
-                    <motion.div variants={topVariants} animate={open ? "opened" : "closed"} className="w-10 h-1 bg-black rounded origin-left"></motion.div>
-                    <motion.div variants={centerVariants} animate={open ? "opened" : "closed"} className="w-10 h-1 bg-black rounded"></motion.div>
-                    <motion.div variants={bottomVariants} animate={open ? "opened" : "closed"} className="w-10 h-1 bg-black rounded origin-left"></motion.div>
+                <button
+                    aria-label="Toggle navigation menu"
+                    className="relative z-50 grid size-11 place-items-center rounded-full border border-white/15 bg-white/[0.08] text-white"
+                    onClick={(()=>setOpen(!open))}
+                >
+                    {open ? <X size={20} /> : <Menu size={20} />}
                 </button>
                 {open &&
-                    <motion.div variants={listVariants} initial="closed" animate="opened" className="absolute top-0 left-0 w-screen h-screen bg-black text-white flex flex-col items-center justify-center gap-8 text-4xl z-40">
+                    <motion.div variants={listVariants} initial="closed" animate="opened" className="fixed inset-0 z-40 flex flex-col items-center justify-center gap-8 bg-[#050505] text-4xl font-black uppercase tracking-[0.16em] text-white">
                     {links.map(link => (
                         <motion.div variants={listItemsVariants} key={link.url}>
-                            <Link href={link.url}>{link.title}</Link>
+                            <Link href={link.url} onClick={() => setOpen(false)}>{link.title}</Link>
                         </motion.div>
                     ))}
                 </motion.div>}
             </div>
 
-            <div className="hidden md:flex gap-4 w-1/3 items-center justify-center">
-                <Link href={"https://github.com/aryandelwadia"}>
-                    <Image src="/github.png" alt="" width={24} height={24}></Image>
+            <div className="hidden items-center justify-end gap-3 md:flex">
+                {socials.slice(0, 4).map((social) => (
+                <Link
+                    key={social.label}
+                    href={social.href}
+                    aria-label={social.label}
+                    className="grid size-10 place-items-center rounded-full border border-white/10 bg-white/[0.04] transition hover:border-cyan-200/70 hover:bg-cyan-200/10"
+                >
+                    <Image src={social.image} alt="" width={20} height={20} className="rounded-sm" />
                 </Link>
-                <Link href={"https://www.linkedin.com/in/aryandelwadia/"}>
-                    <Image src="/linkedin.png" alt="" width={24} height={24}></Image>
-                </Link>
-                <Link href={"https://leetcode.com/u/aryandelwadia/"}>
-                    <Image src="/leetcode.png" alt="" width={24} height={24}></Image>
-                </Link>
-                <Link href={"https://www.geeksforgeeks.org/user/aryan18923/"}>
-                    <Image src="/gfg.png" alt="" width={24} height={24}></Image>
-                </Link>
-                <Link href={"https://www.naukri.com/code360/profile/aryandelwadia"}>
-                    <Image src="/cn.jpeg" alt="" width={24} height={24}></Image>
-                </Link>
+                ))}
             </div>
-        </div>
+        </nav>
     );
 }
