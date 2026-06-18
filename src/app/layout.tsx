@@ -3,8 +3,8 @@ import "./globals.css";
 import TransitionProvider from "@/components/transitionProvider";
 
 export const metadata: Metadata = {
-  title: "Aryan Delawadia | F1-Tech Developer Portfolio",
-  description: "A 3D F1-tech inspired developer portfolio for Aryan Delawadia, featuring full-stack projects, skills, experience, and contact.",
+  title: "Aryan Delawadia | Portfolio Revitalized",
+  description: "A cinematic one-page developer portfolio for Aryan Delawadia, featuring full-stack projects, skills, experience, and contact.",
 };
 
 export default function RootLayout({
